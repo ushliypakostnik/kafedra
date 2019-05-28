@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title></title>
+  <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
+  <meta name="HandheldFriendly" content="true">
+
+  <script>
+    var ieVersion = (function() {
+      var ua = window.navigator.userAgent;
+      var msie = ua.indexOf('MSIE');
+      if (msie > 0) {
+        return parseInt (ua.substring(msie + 5, ua.indexOf('.', msie)));
+      }
+      if (ua.indexOf('Trident/7.0') + 1) {
+        return 11;
+      }
+      return 0;
+    })();
+    if (ieVersion && ieVersion < 10) {
+      location.href = '/html/legacy.html';
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700&amp;subset=cyrillic" rel="stylesheet">
+
+  <link href="./images/favicon.jpg" rel="icon" type="image/jpeg" />
+</head>
+<body>
+
+    <div class="layout">
+      <!-- page content -->
+      <main class="layout__content">
+      
+  <div class="background background-0 hidden-xs hidden-sm"></div>
+  <div id="background" class="background background-1 hidden-xs hidden-sm"></div>
+  <div id="scene-1" class="scene-1 hidden-xs hidden-sm">
+    <div data-depth="0.1" class="scene-1__1">
+    </div>
+    <div data-depth="0.4" originX="" class="scene-1__2">
+      <!-- Dept of experimental psychonautics and inner space research -->
+      <h2><strong>Kafedra</strong> Экспериментальной Психонавтики<span class="visible-lg-inline"> </span><br class="hidden-lg" />И Исследований Внутреннего Космоса</h2>
+    </div>
+    <div data-depth="0" originX="" class="scene-1__3">
+      <div class="boom"><div class="pulse"><span>Radio! New!<span></div></div>
+      <div class="arrow"><span class="bounce icon icon-down"></span></div>
+    </div>
+  </div>
+  <div class="scene-1-gadgets visible-xs visible-sm">
+    <h2><strong>Kafedra</strong> Экспериментальной Психонавтики<br />И Исследований Внутреннего Космоса</h2>
+  </div>
+  <div id="scene-2" class="scene-2">
+    <div class="player">
+      <div class="player__now">
+        <div class="player__label">Now</div>
+        <div class="player__track">Swans - Screensot</div>
+        <div class="player__time">5:45</div>
+      </div>
+      <div class="player__next">
+        <div class="player__label">Next</div>
+        <div class="player__track">Can - Mother Sky</div>
+        <div class="player__time">6:34</div>
+      </div>
+      <div class="player__btns">
+        <a href="#" class="btn btn--play"><span class="btn__text">Play<i class="fas fa-play"></i></span></a
+        ><a href="#" class="btn btn--next"><span class="btn__text">Next<i class="fas fa-step-forward"></i></span></a>
+      </div>
+    </div>
+    <div id="radio"></div>
+  </div>
+
+      </main>
+      <!-- /page content -->
+
+      <footer class="footer layout__footer" role="contentinfo">
+        <address>
+          <ul class="footer__links">
+            <li>
+              <a href="https://kafedra.bandcamp.com/" target="_blank">bandcamp</a>
+            </li>
+            <li>
+              <a href="https://vk.com/kafedra_org" target="_blank">vkontakte</a>
+            </li>
+            <li>
+               <a href="https://www.facebook.com/kafedra" target="_blank">facebook</a>
+            </li>
+            <li>
+               <a href="https://www.instagram.com/kafedra_org/" target="_blank">instagram</a>
+            </li>
+          </ul>
+          <div class="footer__copyright">© kafedra since 2007</div>
+        </address>
+      </footer>
+    </div>
+</body>
+</html>
