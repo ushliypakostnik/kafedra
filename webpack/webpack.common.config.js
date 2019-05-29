@@ -19,6 +19,32 @@ module.exports = {
             context: 'src'
           }
         }
+      },
+      {
+        // TODO: this is to be checked
+        // json structure
+        test: /\.(json)$/i,
+        use: {
+          loader: 'json'
+          // ,
+          // options: {
+          //   name: '[path][name].[ext]',
+          //   context: 'src'
+          // }
+        }
+      },
+      {
+        // TODO: this is to be checked
+        // audio formats
+        test: /\.(ogg|mp3|wav)$i/,
+        use: {
+          loader: 'url'
+          // ,
+          // options: {
+          //   name: '[path][name].[ext]',
+          //   context: 'src'
+          // }
+        }
       }
     ]
   },
