@@ -7,7 +7,7 @@
     "buildDev": "rm -rf build && webpack --mode development --config webpack/webpack.server.config.js && webpack --mode development --config webpack/webpack.dev.config.js",
     "buildProd": "rm -rf build && webpack --mode production --config webpack/webpack.server.config.js && webpack --mode production --config webpack/webpack.prod.config.js",
     "start": "node ./build/server.js",
-    "build:songsJson": "node src/server/buildSongsJson.js",
+    "build:songs:json": "node src/server/buildSongsJson.js",
     "build:stats": "npm run buildDev && webpack --mode development --config=webpack/webpack.dev.config.js --profile --json > stats.json",
     "view:stats": "webpack-bundle-analyzer stats.json"
   },
@@ -37,6 +37,7 @@
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "json-loader": "^0.5.7",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.12.0",
     "nunjucks": "^3.2.0",

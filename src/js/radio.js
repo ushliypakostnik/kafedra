@@ -1,17 +1,22 @@
 class Radio {
     constructor() {
-        console.log(111);
         this._initRadio();
     }
 
-    play() {}
+    play() {
+        // or stop
+    }
     next() {}
+
+    _buildPlaylist() {
+        // randomly
+    }
 
     _initRadio() {
         console.log(222);
         this._getSongsList().then((result) => {
             console.log(333);
-            var html = '<div class="radio">' + this._parseTracks(result.tracks) + '</div>';
+            var html = '<div class="radio">' + this._parseTracks(result.songs) + '</div>';
             console.log(12, html);
             console.log(13, Howl, Howler, HowlerGlobal);
         });
@@ -25,10 +30,11 @@ class Radio {
         });
     }
     _parseTracks(tracks) {
+        // tracks is ({ title: String, url: String, album: String, year: Number })[]
         var html = [];
 
         html.push('<div class="radio__list">');
-        tracks.forEach(v => html.push('<a href="' + v.href + '" target="_blank">' + v.title + '</a>'));
+        tracks.forEach(v => html.push('<a href="' + v.url + '" target="_blank">' + v.title + '</a>'));
         html.push('</div>');
 
         return html.join('');

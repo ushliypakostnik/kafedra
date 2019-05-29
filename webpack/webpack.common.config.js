@@ -10,14 +10,40 @@ module.exports = {
   module: {
     rules: [
       {
-        // images and fonts, mp3s & their json structure
-        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|json|mp3)(\?.*)?$/,
+        // images and fonts
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         use: {
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
             context: 'src'
           }
+        }
+      },
+      {
+        // TODO: this is to be checked
+        // json structure
+        test: /\.(json)$/i,
+        use: {
+          loader: 'json'
+          // ,
+          // options: {
+          //   name: '[path][name].[ext]',
+          //   context: 'src'
+          // }
+        }
+      },
+      {
+        // TODO: this is to be checked
+        // audio formats
+        test: /\.(ogg|mp3|wav)$i/,
+        use: {
+          loader: 'url'
+          // ,
+          // options: {
+          //   name: '[path][name].[ext]',
+          //   context: 'src'
+          // }
         }
       }
     ]

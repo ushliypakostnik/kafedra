@@ -28,6 +28,10 @@ Cборка
 
     $ npm run buildProd
 
+Build JSON for songs to be parsed (it'll be later automated):
+
+    $ npm run build:songs:json
+
 Install webpack && webpack-bundle-analyzer globally for stats to be viewable:
 
     $ npm i -g webpack webpack-bundle-analyzer

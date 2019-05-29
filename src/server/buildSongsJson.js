@@ -23,9 +23,9 @@ fs.readdir(absPath, {
             resolve(songFiles.map((songFile) => {
                 return {
                     album: album,
-                    year: year,
-                    name: songFile.split('.mp3')[0],
-                    songUrl: folderRelPath + '/' + songFile
+                    year: year*1,
+                    title: songFile.split('.mp3')[0],
+                    url: folderRelPath + '/' + songFile
                 };
             }));
         });
@@ -37,10 +37,6 @@ fs.readdir(absPath, {
             return acc;
         }, []);
         const data = JSON.stringify({songs: plainDirsResults});
-
-        // console.log(47, plainDirsResults);
-        // console.log(30, {songs: dirsResults});
-        console.log(data);
 
         fs.writeFile(absPath + '/songs.json', data, (err) => {
             if (err) throw err;
