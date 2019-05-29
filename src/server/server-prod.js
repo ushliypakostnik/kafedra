@@ -3,9 +3,11 @@ import express from 'express';
 import config from '../config.js';
 
 const app = express(),
-            HTML_FILE = path.join(config.DIST_DIR, 'html/indexhtml');
+    HTML_FILE = path.join(config.DIST_DIR, 'html/index.html');
 
-if (config.STATIC_SERVE) {app.use(express.static(config.DIST_DIR));}
+if (config.STATIC_SERVE) {
+    app.use(express.static(config.DIST_DIR));
+}
 
 app.get('*', (req, res) => {
     res.sendFile(HTML_FILE);

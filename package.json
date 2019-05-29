@@ -1,18 +1,22 @@
 {
   "name": "kafedra",
-  "version": "1.0.0",
-  "description": "Undeground psychedelick russian rock group site",
+  "version": "1.0.1",
+  "description": "Underground psychedelic russian rock group site",
   "main": "index.js",
   "scripts": {
     "buildDev": "rm -rf build && webpack --mode development --config webpack/webpack.server.config.js && webpack --mode development --config webpack/webpack.dev.config.js",
     "buildProd": "rm -rf build && webpack --mode production --config webpack/webpack.server.config.js && webpack --mode production --config webpack/webpack.prod.config.js",
-    "start": "node ./build/server.js"
+    "start": "node ./build/server.js",
+    "build:songsJson": "node src/server/buildSongsJson.js",
+    "build:stats": "npm run buildDev && webpack --mode development --config=webpack/webpack.dev.config.js --profile --json > stats.json",
+    "view:stats": "webpack-bundle-analyzer stats.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "howler": "^2.1.2"
   },
   "engines": {
     "node": ">=4.3.2"
@@ -45,8 +49,9 @@
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "url-loader": "^1.1.2",
-    "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2",
+    "webpack": "^4.32.2",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.2",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.2.1",

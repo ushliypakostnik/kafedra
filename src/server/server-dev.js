@@ -7,8 +7,8 @@ import WebpackConfig from '../../webpack/webpack.dev.config.js';
 import config from '../config.js';
 
 const app = express(),
-            HTML_FILE = path.join(config.DIST_DIR, 'html/index.html'),
-            compiler = webpack(WebpackConfig)
+      HTML_FILE = path.join(config.DIST_DIR, 'html/index.html'),
+      compiler = webpack(WebpackConfig);
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: WebpackConfig.output.publicPath

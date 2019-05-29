@@ -10,8 +10,8 @@ module.exports = {
   module: {
     rules: [
       {
-        // images and fonts
-        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
+        // images and fonts, mp3s & their json structure
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|json|mp3)(\?.*)?$/,
         use: {
           loader: 'file-loader',
           options: {

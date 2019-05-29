@@ -27,3 +27,9 @@ Cборка
  Сборка статики в продакшен
 
     $ npm run buildProd
+
+Install webpack && webpack-bundle-analyzer globally for stats to be viewable:
+
+    $ npm i -g webpack webpack-bundle-analyzer
+    $ npm run build:stats
+    $ npm run view:stats
