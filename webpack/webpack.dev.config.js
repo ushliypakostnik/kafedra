@@ -25,12 +25,6 @@ module.exports = merge(common, {
           failOnError: false,
           failOnWarning: false
         }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "babel-loader",
-      },
       {
         // Loads the javacript into html template provided.
         // Entry point is set below in HtmlWebPackPlugin in Plugins
