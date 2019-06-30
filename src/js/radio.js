@@ -1,27 +1,35 @@
 class Radio {
   constructor() {
-    this._initRadio();
+    this.initRadio();
   }
 
-  play() {
-    // or stop
-  }
-  next() {}
+  // https://eslint.org/docs/rules/class-methods-use-this
+  // eslint-disable-next-line class-methods-use-this
+  play() {}
 
-  _buildPlaylist() {
+  // eslint-disable-next-line class-methods-use-this
+  next() {
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  buildPlaylist() {
     // randomly
   }
 
-  _initRadio() {
+  initRadio() {
     console.log(222);
-    this._getSongsList().then((result) => {
+    this.getSongsList().then((result) => {
       console.log(333);
-      var html = '<div class="radio">' + this._parseTracks(result.songs) + '</div>';
+      const html = `<div class="radio">${this.parseTracks(result.songs)}</div>`;
       console.log(12, html);
-      console.log(13, Howl, Howler, HowlerGlobal);
+      // eslint-disable-next-line no-undef
+      console.log(13, Howl, Howler, HowlerGlobal); // Howl, Howler, HowlerGlobal is not defined ???
     });
   }
-  _getSongsList() {
+
+  // eslint-disable-next-line class-methods-use-this
+  getSongsList() {
+    // eslint-disable-next-line no-undef
     return fetch('/audio/songs.json').then((response) => {
       console.log(21, response);
       return response.json();
@@ -29,12 +37,14 @@ class Radio {
       console.error('something gone wrong with request', err);
     });
   }
-  _parseTracks(tracks) {
+
+  // eslint-disable-next-line class-methods-use-this
+  parseTracks(tracks) {
     // tracks is ({ title: String, url: String, album: String, year: Number })[]
-    var html = [];
+    const html = [];
 
     html.push('<div class="radio__list">');
-    tracks.forEach(v => html.push('<a href="' + v.url + '" target="_blank">' + v.title + '</a>'));
+    tracks.forEach(v => html.push(`<a href="${v.url}" target="_blank">${v.title}</a>`));
     html.push('</div>');
 
     return html.join('');

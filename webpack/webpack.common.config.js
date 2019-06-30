@@ -1,5 +1,5 @@
 const path = require('path');
-const NunjucksWebpackPlugin = require("nunjucks-webpack-plugin");
+const NunjucksWebpackPlugin = require('nunjucks-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -14,8 +14,8 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         // images and fonts
@@ -24,37 +24,37 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
-            context: 'src'
-          }
-        }
+            context: 'src',
+          },
+        },
       },
       {
         // TODO: this is to be checked
         // json structure
         test: /\.(json)$/i,
         use: {
-          loader: 'json'
+          loader: 'json',
           // ,
           // options: {
           //   name: '[path][name].[ext]',
-          //   context: 'src'
-          // }
-        }
+          //   context: 'src',
+          // },
+        },
       },
       {
         // TODO: this is to be checked
         // audio formats
         test: /\.(ogg|mp3|wav)$i/,
         use: {
-          loader: 'url'
+          loader: 'url',
           // ,
           // options: {
           //   name: '[path][name].[ext]',
-          //   context: 'src'
-          // }
-        }
-      }
-    ]
+          //   context: 'src',
+          // },
+        },
+      },
+    ],
   },
   plugins: [
     // templates
@@ -62,20 +62,19 @@ module.exports = {
       templates: [
         {
           from: path.resolve(__dirname, '../src/tmpl/pages/index.html'),
-          to: path.resolve(__dirname, '../src/html/index.html')
-        }
-      ]
-      //configure: [{}]
+          to: path.resolve(__dirname, '../src/html/index.html'),
+        },
+      ],
     }),
     new HtmlWebpackPlugin({
       filename: 'html/legacy.html',
       inject: false, // no link css
-      template: path.resolve(__dirname, '../src/html/legacy.html')
+      template: path.resolve(__dirname, '../src/html/legacy.html'),
     }),
     new HtmlWebpackPlugin({
       filename: 'html/index.html',
       xhtml: true, // selfclosed tag to link css
-      template: path.resolve(__dirname, '../src/html/index.html')
-    })
-  ]
+      template: path.resolve(__dirname, '../src/html/index.html'),
+    }),
+  ],
 };
