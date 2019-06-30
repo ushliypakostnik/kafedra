@@ -11,7 +11,6 @@ $breackpoint_height_large: 850px;
 // Main layout
 
 .layout {
-
   &__content {
     box-sizing: border-box;
     min-height: 100%;
@@ -109,7 +108,6 @@ $breackpoint_height_large: 850px;
 
 .scene-1,
 .scene-1-gadgets {
-
   h2 {
     white-space: nowrap;
     width: 100%;
@@ -143,6 +141,7 @@ $breackpoint_height_large: 850px;
   }
 
   &__1 {
+    // stylelint-disable-next-line declaration-no-important
     top: 10px !important; // important to rewrite parallax.js inline style!!!
     height: calc(100vh - 60px);
     background: url("#{$image-path}kafedra.png") 50% 50% no-repeat;
@@ -198,13 +197,14 @@ $breackpoint_height_large: 850px;
       right: 0;
       text-shadow: $text-shadow_coords-x $text-shadow_coords-y ($text-shadow_size * 2) $color_text_shadow;
 
-      span {
+      // stylelint-disable-next-line no-descending-specificity
+      > span {
         display: inline-block;
         font-size: 70px;
         @include link-style($color_white, $color_white);
 
         @include md {
-            font-size: 70px;
+          font-size: 70px;
         }
       }
     }

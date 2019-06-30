@@ -67,23 +67,23 @@
 // Animations
 
 .bounce {
-    $duration: $transition_duration * 3;
-    animation: bounce #{$duration} infinite ease-in-out;
+  $duration: $transition_duration * 3;
+  animation: bounce #{$duration} infinite ease-in-out;
 }
 
 .pulse {
-    $duration: $transition_duration * 3;
-    animation: pulse #{$duration} infinite ease-in-out;
+  $duration: $transition_duration * 3;
+  animation: pulse #{$duration} infinite ease-in-out;
 }
 
 .riseUp {
-    $duration: $transition_duration * 2;
-    @include animation('riseUp #{$duration} forwards #{$transition_timing-function}', 
-                       'fadeOn #{$duration} forwards #{$transition_timing-function}');
+  $duration: $transition_duration * 2;
+  @include animation("riseUp #{$duration} forwards #{$transition_timing-function}",
+                     "fadeOn #{$duration} forwards #{$transition_timing-function}"); // stylelint-disable-line indentation
 }
 
 .riseDown {
-    $duration: $transition_duration * 2;
-    @include animation('riseDown #{$duration} forwards #{$transition_timing-function}', 
-                       'fadeOut #{$duration} forwards #{$transition_timing-function}');
+  $duration: $transition_duration * 2;
+  @include animation("riseDown #{$duration} forwards #{$transition_timing-function}",
+                     "fadeOut #{$duration} forwards #{$transition_timing-function}"); // stylelint-disable-line indentation
 }
