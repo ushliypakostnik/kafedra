@@ -1,5 +1,5 @@
-Express start project with Webpack bundler
-==========================================
+Online-radio on http://www.kafedra.org/
+=======================================
 
 Сайт рок-группы с радио.
 
