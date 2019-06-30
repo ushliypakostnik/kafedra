@@ -1,5 +1,5 @@
-Online-radio on http://www.kafedra.org/
-=======================================
+Online-radio on kafedra.org
+===========================
 
 Сайт рок-группы с радио.
 
