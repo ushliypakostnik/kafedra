@@ -350,7 +350,7 @@ $breackpoint_height_large: 850px;
     @include text($font-family_serif, $font-size_normal, $font-weight_serif_bold);
   }
 
-  &__track {
+  &__track-title {
     color: $color_white;
     white-space: nowrap;
     @include text($font-family_sans, $font-size_large, $font-weight_sans_bold);
@@ -368,7 +368,7 @@ $breackpoint_height_large: 850px;
     }
   }
 
-  &__time {
+  &__duration {
     color: $color_main_light;
     @include text($font-family_sans, $font-size_normal, $font-weight_sans_light);
   }
@@ -397,10 +397,19 @@ $breackpoint_height_large: 850px;
 
   &--play {
     @include btn($color_main, $color_white);
+
+    .player--active & {
+      display: none;
+    }
   }
 
-  &--stop {
+  &--pause {
     @include btn-transparent($color_white);
+    display: none;
+
+    .player--active & {
+      display: inline-block;
+    }
   }
 
   &--next {

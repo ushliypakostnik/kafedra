@@ -1,44 +1,16 @@
 const fs = require('fs-extra');
 const path = require('path');
 
-const currentProcessPath = process.cwd();
-const relPath = __dirname.split(currentProcessPath)[1].split('\\').join('/');
-const absPath = path.resolve(__dirname, '..', 'audio');
+const { getFoldersFsPromises, writeResultsFile } = require('./_helpers');
 
-fs.readdir(absPath, {
+const absJSONTargetPath = path.resolve(__dirname, '..', 'audio');
+
+fs.readdir(absJSONTargetPath, {
   withFileTypes: true,
-}, (err, files) => {
+}, (err, folders) => {
   if (err) throw err;
 
-  const dirs = files.filter(file => file.isDirectory());
-  const promises = dirs.map(file => new Promise((resolve) => {
-    const mp3sPath = path.resolve(absPath, file.name);
-    const folderRelPath = `${relPath}/${file.name}`;
-    const year = file.name.split('[')[1].split('] ')[0];
-    const album = file.name.split('] ')[1];
-
-    fs.readdir(mp3sPath, (error, songFiles) => {
-      if (error) throw error;
-
-      resolve(songFiles.map(songFile => ({
-        album,
-        year: year * 1,
-        title: songFile.split('.mp3')[0],
-        url: `${folderRelPath}/${songFile}`,
-      })));
-    });
-  }));
-
-  Promise.all(promises).then((dirsResults) => {
-    const plainDirsResults = dirsResults.reduce((acc, v) => {
-      Array.prototype.push.apply(acc, v);
-      return acc;
-    }, []);
-    const data = JSON.stringify({ songs: plainDirsResults });
-
-    fs.writeFile(`${absPath}/songs.json`, data, (error) => {
-      if (error) throw error;
-      console.log('The file has been saved!');
-    });
-  });
+  Promise.all(
+    getFoldersFsPromises(absJSONTargetPath, folders)
+  ).then(foldersResults => writeResultsFile(absJSONTargetPath, foldersResults));
 });
