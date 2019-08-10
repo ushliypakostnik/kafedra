@@ -33,7 +33,7 @@ module.exports = {
         // json structure
         test: /\.(json)$/i,
         use: {
-          loader: 'json',
+          loader: 'json-loader'
           // ,
           // options: {
           //   name: '[path][name].[ext]',
@@ -46,7 +46,7 @@ module.exports = {
         // audio formats
         test: /\.(ogg|mp3|wav)$i/,
         use: {
-          loader: 'url',
+          loader: 'file-loader'
           // ,
           // options: {
           //   name: '[path][name].[ext]',

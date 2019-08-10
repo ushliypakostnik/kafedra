@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 const common = require('./webpack.common.config.js');
 
 module.exports = merge(common, {
@@ -60,5 +62,8 @@ module.exports = merge(common, {
       failOnError: false,
       syntax: 'scss',
     }),
+    new CopyPlugin([
+      { from: './audio', to: '../build/audio', context: './src' },
+    ]),
   ],
 });

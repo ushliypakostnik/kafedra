@@ -6,10 +6,12 @@
   "scripts": {
     "buildDev": "rm -rf build && webpack --mode development --config webpack/webpack.server.config.js && webpack --mode development --config webpack/webpack.dev.config.js",
     "buildProd": "rm -rf build && webpack --mode production --config webpack/webpack.server.config.js && webpack --mode production --config webpack/webpack.prod.config.js",
+    "prestart": "npm run build:songs:json",
     "start": "node ./build/server.js",
     "build:songs:json": "node src/server/buildSongsJson.js",
     "eslint": "eslint ./webpack ./src",
     "stylelint": "stylelint ./src/styles",
+    "stats": "npm run build:stats && npm run view:stats",
     "build:stats": "npm run buildDev && webpack --mode development --config=webpack/webpack.dev.config.js --profile --json > stats.json",
     "view:stats": "webpack-bundle-analyzer stats.json"
   },
@@ -23,6 +25,7 @@
     "howler": "^2.1.2",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.7.0",
+    "musicmetadata": "^2.0.5",
     "nunjucks-webpack-plugin": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "parallax-js": "^3.1.0",
@@ -46,6 +49,7 @@
     "babel-eslint": "^9.0.0",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.0",
+    "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.1.0",
